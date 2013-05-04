@@ -37,7 +37,9 @@ for (var i = 0; i < busts.length; i++) {
   marker[i] = new google.maps.Marker({
         map: map,
         position: latlng,
-        zIndex: Math.round(latlng.lat()*-100000)<<5
+        title: busts[i].date + " -- " + busts[i].address
+        // zIndex: Math.round(latlng.lat()*-100000)<<5
+
         })
         // name: busts[i].date + " -- " + busts[i].address}
 }

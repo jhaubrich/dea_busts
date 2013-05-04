@@ -12,12 +12,13 @@ def dict_from_csv(filename):
         reader = csv.reader(csvfile, delimiter=',', quotechar='|')
         for row in reader:
             sleep(0.1)  # google gets techy if you go too fast: Over your limit...
-            print(row)
+            # print(row)
             try:
                 # FIXME: some malformed addresses are excluded
                 addr, latLng = geocode(row[0])
                 o.append({'latLng':latLng, 'address':addr, 'date':row[1]})
             except ValueError:
+                print("Error:", row)
                 continue
     return o
 
