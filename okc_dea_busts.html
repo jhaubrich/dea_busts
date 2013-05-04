@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0; padding: 0 }
+    #map-canvas { height: 100% }
+  </style>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZBrTMAtzQbkao6Gg73lyLFuL8uFE2qeU&sensor=false">
+</script>
+
+<script type="text/javascript">
+var map;
+
+function initialize() {
+  var latlng = new google.maps.LatLng(35.466263,-97.510529);
+  var mapOptions = {
+    zoom: 12,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+// Load geo json for busts
+d3.json("okc_dea_busts.json", function(error, json_busts) {
+  for (var i = 0; i < json_busts.length; i++) {
+    var marker = new google.maps.Marker({
+          map: map,
+          position: google.maps.LatLng(json_busts[i].latLng[0], json_busts[i].latLng[1])
+          // name: json_busts[i].date + " -- " + json_busts[i].address}
+        })
+    // createMarker(event.latLng, "name", "<b>Location</b><br>"+event.latLng);
+  }
+});
+
+</script>
+</head>
+<body>
+  <div id="map-canvas"/>
+</body>
+</html>
