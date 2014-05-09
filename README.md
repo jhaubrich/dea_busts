@@ -1,4 +1,7 @@
-View map at http://jhaubrich.github.io/dea_busts/
+# DEA Meth Houses in OKC
+I happened upon this [DEA drug bust data]( http://www.justice.gov/dea/clan-lab/ok.pdf) while looking to buy a house in Oklahoma City. Thought it might be easier if it were plotted.
+
+You can view the map at http://jhaubrich.github.io/dea_busts/
 
 # Addresses that won't parse
     ('Error:', ['828 SE 4th St Oklahoma City OK 73160', ' 12/8/2000'])
